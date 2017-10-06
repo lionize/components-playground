@@ -1,11 +1,13 @@
 import React from "react";
 import { storiesOf } from "@kadira/storybook";
+import styled from "styled-components";
 
 import "../injectGlobalCss";
 import ColorCard from "../components/ColorCard";
 import GradientCard from "../components/GradientCard";
 import StripePayment from "../components/StripePayment";
 import DropdownNotifications from "../components/DropdownNotifications";
+import { Circle, Triangle } from "../components/CssShapes";
 
 const color = () => {
   const colors = ["47DAFF", "FFB547", "47FF8E", "FF6347", "FF47F3"];
@@ -41,3 +43,25 @@ storiesOf("StripePayment", () => module).add("dark", () => (
 storiesOf("DropdownNotifications", () => module).add("normal", () => (
   <DropdownNotifications />
 ));
+
+const ShapesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const randomBool = () => Math.random() >= 0.5;
+const randomSize = () => {
+  const size = Math.floor(Math.random() * 40) + 10;
+  return `${size}px`;
+};
+
+storiesOf("CSS Shapes", () => module).add("shapes", () => {
+  const circles = [];
+
+  for (let i = 0; i < 50; i++) {
+    const size = randomSize();
+    circles.push(<Circle key={i} outline={false} size={size} />);
+  }
+
+  return <ShapesWrapper>{circles}</ShapesWrapper>;
+});
