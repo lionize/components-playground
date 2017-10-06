@@ -1,25 +1,5 @@
 export const hexToRgb = (hex, alpha) => {
-  let r
-  let g
-  let b
-
-  if (hex.length == 7) {
-    r = getIntFromHex(hex.slice(1, 3))
-    g = getIntFromHex(hex.slice(3, 5))
-    b = getIntFromHex(hex.slice(5, 7))
-  } else if (hex.length == 4) {
-    r = getIntFromHex(
-      `${hex.slice(1, 2)}${hex.slice(1, 2)}`
-    )
-    g = getIntFromHex(
-      `${hex.slice(2, 3)}${hex.slice(2, 3)}`
-    )
-    b = getIntFromHex(
-      `${hex.slice(3, 4)}${hex.slice(3, 4)}`
-    )
-  } else {
-    console.error(`Incorrect number of characters in hex string ${hex}`)
-  }
+  const [r, g, b] = rgbFromHexString(hex)
 
   if (alpha) {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`
@@ -28,10 +8,38 @@ export const hexToRgb = (hex, alpha) => {
   }
 }
 
+export const rgbFromHexString = (hex) => {
+  let r, g, b
+
+  if (hex[0] == '#') {
+    hex = hex.slice(1)
+  }
+
+  if (hex.length == 6) {
+    r = getIntFromHex(hex.slice(0, 2))
+    g = getIntFromHex(hex.slice(2, 4))
+    b = getIntFromHex(hex.slice(4, 6))
+  } else if (hex.length == 3) {
+    r = getIntFromHex(
+      `${hex[0]}${hex[0]}`
+    )
+    g = getIntFromHex(
+      `${hex[1]}${hex[1]}`
+    )
+    b = getIntFromHex(
+      `${hex[2]}${hex[2]}`
+    )
+  } else {
+    throw Error(`Hex string in format "#FFFFFF" or "#FFF" expected but was ${hex}`)
+  }
+
+  return [r, g, b]
+}
+
 const getIntFromHex = (hex) => {
   if (hex.length == 2) {
     return parseInt(hex, 16)
   } else {
-    console.error('Cannot parse hex string ${hex}')
+    throw Error(`Hex string "${hex}" is not valid`)
   }
 }
