@@ -34,17 +34,17 @@ const OutlineWrapper = styled(Wrapper)`
   }
 `;
 
-const Circle = ({ children, outline, size = "50px" }) => {
-  const color = randomGradient();
+const Circle = ({ className, children, outline, size = "50px", color }) => {
+  color = color || randomGradient();
   if (outline) {
     return (
-      <OutlineWrapper size={size} color={color}>
+      <OutlineWrapper className={className} size={size} color={color}>
         {children}
       </OutlineWrapper>
     );
   } else {
     return (
-      <FilledWrapper size={size} color={color}>
+      <FilledWrapper className={className} size={size} color={color}>
         {children}
       </FilledWrapper>
     );

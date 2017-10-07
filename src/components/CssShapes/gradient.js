@@ -1,4 +1,4 @@
-const gradients = [
+export const gradients = [
   ["#FDEB71", "#F8D800"],
   ["#ABDCFF", "#0396FF"],
   ["#FEB692", "#EA5455"],
@@ -61,7 +61,7 @@ const gradients = [
   ["#FF96F9", "#C32BAC"]
 ];
 
-const directions = [
+export const directions = [
   "to bottom right",
   "to top right",
   "to right",
@@ -72,8 +72,9 @@ const directions = [
   "to bottom"
 ];
 
-export const randomGradient = () => {
-  const direction = directions[Math.floor(Math.random() * directions.length)];
+export const randomGradient = dir => {
+  const direction =
+    dir || directions[Math.floor(Math.random() * directions.length)];
   const colors = gradients[Math.floor(Math.random() * gradients.length)];
 
   return `linear-gradient(${direction}, ${colors[0]}, ${colors[1]})`;
