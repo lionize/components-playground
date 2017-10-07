@@ -8,6 +8,8 @@ import GradientCard from "../components/GradientCard";
 import StripePayment from "../components/StripePayment";
 import DropdownNotifications from "../components/DropdownNotifications";
 import { Circle, Triangle } from "../components/CssShapes";
+import MobileUserList from "../components/MobileUserList";
+import ChatBot from "../components/ChatBot";
 
 const color = () => {
   const colors = ["47DAFF", "FFB547", "47FF8E", "FF6347", "FF47F3"];
@@ -65,3 +67,32 @@ storiesOf("CSS Shapes", () => module).add("shapes", () => {
 
   return <ShapesWrapper>{circles}</ShapesWrapper>;
 });
+
+const MobileUserListWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightblue;
+  padding: 1rem;
+`;
+storiesOf("MobileUserList", () => module).add("default", () => (
+  <MobileUserListWrapper>
+    <MobileUserList />
+  </MobileUserListWrapper>
+));
+
+const ChatBotWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+`;
+storiesOf("ChatBot", () => module).add("default", () => (
+  <ChatBotWrapper>
+    <ChatBot />
+  </ChatBotWrapper>
+));
