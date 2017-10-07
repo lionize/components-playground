@@ -10,6 +10,7 @@ import DropdownNotifications from "../components/DropdownNotifications";
 import { Circle, Triangle } from "../components/CssShapes";
 import MobileUserList from "../components/MobileUserList";
 import ChatBot from "../components/ChatBot";
+import MobileRegistrationForm from "../components/MobileRegistrationForm";
 
 const color = () => {
   const colors = ["47DAFF", "FFB547", "47FF8E", "FF6347", "FF47F3"];
@@ -95,4 +96,17 @@ storiesOf("ChatBot", () => module).add("default", () => (
   <ChatBotWrapper>
     <ChatBot />
   </ChatBotWrapper>
+));
+
+const MobileRegistrationFormWrapper = styled.div`
+  background-color: #aaafb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+`;
+storiesOf("MobileRegistrationForm", () => module).add("default", () => (
+  <MobileRegistrationFormWrapper>
+    <MobileRegistrationForm />
+  </MobileRegistrationFormWrapper>
 ));
