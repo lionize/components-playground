@@ -12,6 +12,7 @@ import MobileUserList from "../components/MobileUserList";
 import ChatBot from "../components/ChatBot";
 import MobileRegistrationForm from "../components/MobileRegistrationForm";
 import UserSettings from "../components/UserSettings";
+import PharmacoList from "../components/PharmacoList";
 
 const color = () => {
   const colors = ["47DAFF", "FFB547", "47FF8E", "FF6347", "FF47F3"];
@@ -113,11 +114,11 @@ storiesOf("MobileRegistrationForm", () => module).add("default", () => (
 ));
 
 const Wrapper = styled.div`
-  background-color: ${props => props.color || "#fff"};
+  background: ${props => props.color || "#fff"};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem;
 
   & * {
     box-sizing: border-box;
@@ -127,5 +128,11 @@ const Wrapper = styled.div`
 storiesOf("UserSettings", () => module).add("default", () => (
   <Wrapper color="#f5f5f5">
     <UserSettings />
+  </Wrapper>
+));
+
+storiesOf("PharmacoList", () => module).add("default", () => (
+  <Wrapper color="linear-gradient(to bottom right, #D120E5, #BA1DCC)">
+    <PharmacoList />
   </Wrapper>
 ));
