@@ -13,6 +13,8 @@ import ChatBot from "../components/ChatBot";
 import MobileRegistrationForm from "../components/MobileRegistrationForm";
 import UserSettings from "../components/UserSettings";
 import PharmacoList from "../components/PharmacoList";
+import Login from "../components/Login";
+import Vpn from "../components/Vpn";
 
 const color = () => {
   const colors = ["47DAFF", "FFB547", "47FF8E", "FF6347", "FF47F3"];
@@ -134,5 +136,17 @@ storiesOf("UserSettings", () => module).add("default", () => (
 storiesOf("PharmacoList", () => module).add("default", () => (
   <Wrapper color="linear-gradient(to bottom right, #D120E5, #BA1DCC)">
     <PharmacoList />
+  </Wrapper>
+));
+
+storiesOf("Login", () => module).add("default", () => (
+  <Wrapper color="#e6e6e6">
+    <Login />
+  </Wrapper>
+));
+
+storiesOf("Vpn", () => module).add("default", () => (
+  <Wrapper color="linear-gradient(to bottom right, #D120E5, #BA1DCC)">
+    <Vpn />
   </Wrapper>
 ));
