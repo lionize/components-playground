@@ -15,6 +15,7 @@ import UserSettings from "../components/UserSettings";
 import PharmacoList from "../components/PharmacoList";
 import Login from "../components/Login";
 import Vpn from "../components/Vpn";
+import Blog from "../components/Blog";
 
 const color = () => {
   const colors = ["47DAFF", "FFB547", "47FF8E", "FF6347", "FF47F3"];
@@ -148,5 +149,11 @@ storiesOf("Login", () => module).add("default", () => (
 storiesOf("Vpn", () => module).add("default", () => (
   <Wrapper color="linear-gradient(to bottom right, #D120E5, #BA1DCC)">
     <Vpn />
+  </Wrapper>
+));
+
+storiesOf("Blog", () => module).add("default", () => (
+  <Wrapper color="#e6e6e6">
+    <Blog />
   </Wrapper>
 ));
